@@ -1,0 +1,35 @@
+<h1>Saling</h1>
+
+<%= simple_form_for @order do |f| %>
+	<table class="table">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Product Name</th>
+				<th>Price</th>
+				<th>Quantity</th>
+			</tr>
+		</thead>
+
+		<tbody class="fields">
+			<%= f.add_nested_fields_link :order_details, 'Add', class: 'btn btn-primary'%>
+			<%= f.nested_fields_for :order_details do |ff| %>
+				<tr>
+					<td> 
+						<%= ff.remove_nested_fields_link 'Remove', class: 'btn btn-danger' %>
+					</td>
+					<td> <%= ff.input :product_id, collection: @products, label_method: :name, value_method: :id %> </td>
+					<td> <%= ff.text_field :price %> </td>
+
+					<td> <%= ff.text_field :quantity %> </td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+	<div class="form-actions">
+		<%= f.button :submit %>
+	
+	</div>
+
+<% end %>

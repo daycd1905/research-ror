@@ -1,0 +1,6 @@
+class OrderDetail
+def	snake_case
+view products (danh tu + s)
+model product (danh tu ko s)
+controller products_controller()
+service add_product_service(v + n)

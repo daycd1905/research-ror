@@ -1,0 +1,17 @@
+<h1>Add new product</h1>
+
+<%= form_for(@product) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, required: true%>
+  </p>
+  <p>
+    <%= f.label :price %><br>
+    <%= f.text_field :price, required: true %>
+  </p>
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,16 @@
+<h1>Cart</h1>
+
+<table style="width: 100%" border="1">
+	<tr>
+		<th>Name: </th>
+		
+		<th>Quantity: </th>
+	</tr>
+
+	<% @detail_hash.each do |key, value|%>
+	<tr>
+		<td><%= key-%></td>
+		<td><%= value %></td>
+	</tr>
+	<%end%>
+</table>

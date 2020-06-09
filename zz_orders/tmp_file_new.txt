@@ -1,0 +1,18 @@
+<h1>Sale Product</h1>
+
+<%=  form_tag :action => "add" do%>
+<p>
+	<label for="order_details"> Name:  </label>
+	<%=collection_select(:order_details, :product_id, @products, :id, :name) %>
+</p>
+
+
+<p>
+	<label for="order_details"> Quantity:  </label>
+	<%= text_field "order_details", "quantity" %>
+</p>
+
+<%= submit_tag "Add to cart" %>
+
+<%= link_to 'Cart',  {:action => 'cart'} %>
+<% end %>

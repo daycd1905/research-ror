@@ -1,0 +1,6 @@
+The difference is in the helper methods that are added allowing you to build or create a new association object. The approach is slightly different for a has_one compared to a has_many association.
+
+For a has_one association the method to create a new associated object would be user.create_post.
+
+For a has_many association the method to create a new associated object would be user.posts.create.
+

@@ -1,0 +1,116 @@
+User.where(name: 'Cao')
+
+Inventory.where("quantity <= 2")
+
+User.where("name = 'Cao'")
+User.where(name: "Cao")
+
+User.where.not(name: "Cao")
+
+
+
+SELECT p.id, p.name, p.price FROM Product p, Inventory i 
+WHERE p.id = i.product_id
+AND	i.quatity <= 2 
+
+Product.join(:inventories).where("i.quantity <= 2")
+
+
+User.where("name = ?", params[:name])
+
+
+User.order(name: :asc)
+
+
+Course
+	id
+	name
+
+
+TeacherAssistant
+	id
+	name
+
+Class
+	id 
+	name
+
+
+
+class Course
+	has_many :tmp
+end
+
+class Class
+	has_many :tmp
+end
+
+class TeachingAssistant
+	belongs_to :tmp, polimorphic: true
+end
+
+
+
+
+u = User.where(name: "Cao")
+u.update("name = 'Cao Dinh Day'")
+
+tim order co user nao la Cao dinh day phai mua product_id = 1
+
+Order
+	id
+	user
+
+Order.where(user_id: 1)
+
+
+
+
+
+Order.joins(:order_details).where("order_details.product_id = 1 AND user_id = 1")
+
+Order.joins(user).where(user.name = 'Cao Dinh Day').
+
+
+sum tat ca cac product = 1
+
+**OrderDetail.select(sum(quantity) as total).where(product_id: 1)
+
+
+danh sach moi product ban dc nhieu cai
+
+Product.joins(:order_details).group(:quantity).count
+OrderDetail.group(:product_id).having().sum(:quantity)
+
+Client.where("created_at >= :start_date AND created_at <= :end_date",
+  {start_date: params[:start_date], end_date: params[:end_date]})
+
+
+
+
+
+
+
+1/lay tat ca nhung order today
+2/trong orderdetail trong ngay hom nay nhiu nhat
+3/Select user mua do order cai gi
+4/tinh thong ke 1 thang user do mua product gi bao nhieu
+
+
+1/
+range = Time.now.beginning_of_day..Time.now.end_of_day
+Order.where(created_at: range)
+
+2/====?
+OrderDetail.where(created_at: range).group(:product_id).sum(:quantity).sort_by {|key, value| value}.last
+
+3/
+Order.where(:customer_id: 2)
+Order.joins(:customer).where(customers: {name: 'tienht'})
+
+4/
+OrderDetail.joins(:order).where(orders: {customer_id: 2})
+
+5/ 
+OrderDetail.joins(:order).where(orders: {customer_id: 2}).group(:order_id).having("order_id > 3").sum('quantity * price')
+

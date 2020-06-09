@@ -1,0 +1,12 @@
+<div class="nested_fields">
+    <%= f.input :_destroy, as: :hidden%>
+    <div>
+        <%= f.input :price %>        
+    </div>
+    <div>
+        <%= f.input :quantity %>      
+    </div>
+    <div>
+        <%= link_to "Remove", '#', class: "remove_fields" %>
+    </div>
+</div>

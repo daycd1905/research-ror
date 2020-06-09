@@ -1,0 +1,25 @@
+<%= simple_form_for @order do |f| %>
+	<table class="form-inputs" border="1">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Product Name</th>
+					<th>Price</th>
+					<th>Quantity</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<%= f.simple_fields_for :order_details do |ff| %>
+					<%= render 'order_detail', f: ff %>
+				<% end %>
+		<%= link_to_add_fields("Add Product", f, :order_details) %>
+
+			</tbody>
+	</table>
+
+	<div class="form-actions">
+		<%= f.button :submit%>
+	</div>
+
+<%end%>

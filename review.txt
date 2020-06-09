@@ -1,0 +1,74 @@
+branch reset include precend extend  ?: null parainemthod truyen bien co hay ko deu dc "" ''addd array cehck duplcate store gem o dau check status migrate               authen admin user
+
+
+1. new branch
+2. git reset
+3. ?:
+4. phan biet include precend extend
+5. default value khi tao ham ma ko truyen
+6. vi du
+def sum(a= {})
+end
+
+sum(3,4)
+sum(3)
+
+7. phan biet "" ''
+8. add array to array
+9. check duplicate in hash
+a = [1, 2, 3]
+b = [8, 9]
+c = [1, 2, 3, [8, 9]]
+
+hash1 = [a: 1, b: 2, c: 3]
+hash2 = [a: 2, d: 5]
+hash1.merge(hash2)
+=> check
+
+10. khi down gem thi duoc luu o dau
+11. chech status migrate nao duoc chay, roll back no lai sao
+12. thi du log in thi trong route viet code sao
+13. download postico
+14. install gem
+
+
+
+1
+fasle && false
+> false
+false && true
+>false
+---> squence
+
+2
+attr_*
+
+10.times.each||
+
+if (a && b) && !c`
+-> unless c || !(a || b)
+
+
+Cource
+	
+
+
+
+
+syntax api get put patch delete
+STI polymorphic
+active record query
+authenticity_token in form la gi, chay la msao
+
+
+chon con so
+update, update_all
+
+
+
+truthy values of rials
+present, blank
+translate form object
+advance
+
+

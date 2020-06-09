@@ -1,0 +1,36 @@
+class User < ApplicationRecord
+	has_many_and_belongs_to :roles
+end
+
+class Role < ApplicationRecord
+	has_many_and_belongs_to :users
+end
+
+
+class CreateUserRoles < ApplicationRecord:Migration
+	def change
+		create_table :user_roles do |t|
+			t.references :user, index: true, foriegn_key: true
+			t.references :role, index: true, foriegn_key: true
+		end
+	end
+end
+
+
+
+
+class User < ApplicationRecord
+	has_many :roles, through: :user_roles
+	has_many :user_roles
+end
+
+
+class Role < ApplicationRecord
+	has_many :users, through: :user_roles
+	has_many :user_roles
+end
+
+class UserRoles < ApplicationRecord
+	belongs_to :user
+	belongs_to :role
+end
